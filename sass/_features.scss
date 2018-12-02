@@ -1,0 +1,35 @@
+.features {
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: auto auto; -- not defining the rows so it's an implicit grid area
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // width of each of the tracks should be between 25rem and 1 fr -- responsive setup
+    grid-gap: 6rem; // 60px gap between the grid spaces 
+
+    align-items: start; // aligns text for the child elements below to start at the TOP of each row/column so we can have different amounts of text
+
+}
+
+.feature {  // independent component that is reuseable on another page, independent of the features class 
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        height: 4.5rem;
+        width: 4.5rem;
+         grid-row: 1 / span 2; // (-1 would be to the end of the EXPLICIT grid)
+
+         transform: translateY(-1rem); // moves the icon up a little bit so it's centered
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+}
