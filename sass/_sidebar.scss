@@ -2,4 +2,34 @@
     background-color: $color-primary;
     grid-column: sidebar-start / sidebar-end;
     grid-row: 1 / -1;
+
+    display: flex; // creates a 1 dimensional flex container 
+    justify-content: center; // centers all child elements below in the center along the main axis (horizontal), so the nav design
+}
+
+.nav-btn {
+    border: none;
+    border-radius: 0;
+
+    background-color: #FFF;
+    height: 2px;
+    width: 4.5rem;
+    margin-top: 4rem; // moves the whole button down so you can see all 3 pieces
+
+    &::before,
+    &::after {
+        background-color: #FFF;
+        height: 2px;
+        width: 4.5rem;
+        content: "";
+        display: block;
+    }
+
+    &::before {
+        transform: translateY(-1.5rem);
+    }
+
+    &::after {
+        transform: translateY(1.3rem);
+    }
 }

@@ -1,4 +1,83 @@
 .homes {
-    background-color: $color-secondary;
     grid-column: center-start / center-end;
+    margin: 15rem 0; // moves the cards away top and bottom from other elements of the site
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // auto # of columns, min of 250px max of 1 fr.
+    grid-gap: 7rem; // 70px
+}
+
+.home {
+    background-color: $color-grey-light-1;
+
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr);
+    grid-row-gap: 3.5rem; // space between rows
+
+    &__img {
+        width: 100%;
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+        z-index: 1;
+    }
+
+    &__like {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        fill: $color-primary;
+        height: 2.5rem;
+        width: 2.5rem;
+        z-index: 2;
+        justify-self: end;
+        margin: 1rem;
+    }
+
+    &__name {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        justify-self: center;
+        align-self: end;
+        z-index: 3;
+
+        width: 80%;
+
+        font-family: $font-display;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 1.25rem;
+        background-color: $color-secondary;
+        color: #FFF;
+        font-weight: 400;
+
+        transform: translateY(50%); // 50% of the height of the element itself 
+    }
+
+    &__location,
+    &__rooms {
+        margin-top: 2.5rem; // this margin makes the locatino and rooms items move down a little bit so they don't touch the name element
+    }
+
+    &__location,
+    &__rooms,
+    &__area,
+    &__price {
+
+        font-size: 1.5rem;
+        margin-left: 2rem; // gives each item in the grid a left margin of 2 rem (pushes them to the middle)
+
+        display: flex; // using flexbox makes the elements and the icons display side by side 
+        align-items: center; // aligns them vertically along the cross axis
+
+        svg {
+            fill: $color-primary;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 1rem; // separates the icon from the text
+        }
+
+    }
+
+    &__btn {
+        grid-column: 1 / -1;
+    }
 }

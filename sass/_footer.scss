@@ -1,4 +1,44 @@
 .footer {
     background-color: $color-secondary;
     grid-column: full-start / full-end;
+    
+    padding: 8rem;
+}
+
+.nav {
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); // automatically figures out how many tracks there should be. as soon as one track gets more narrow than 20rem, one disappears
+    grid-gap: 2rem; // adds 20px spacing between the columns in the nav
+    align-items: center; // aligns all the line items along their grid cells on the column/vertical axis
+
+    &__link:link,
+    &__link:visited {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #FFF;
+        font-family: $font-display;
+        text-align: center;
+        padding: 1.5rem;
+        display: block; // must display as a block for padding and text align to apply
+        transition: all .2s;  // makes the transitino on hover/active smooth with .2s transition
+    }
+
+    &__link:hover,
+    &__link:active {
+        background-color: rgba(#fff, .05); // lighter blue background on hover 
+        transform: translateY(-3px); // moves the link up 3px on hover 
+    }
+}
+
+.copyright {
+    font-size: 1.4rem;
+    color: $color-grey-light-2;
+    margin-top: 6rem;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 70%;
 }

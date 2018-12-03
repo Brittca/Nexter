@@ -1,4 +1,32 @@
 .realtors {
     background-color: $color-secondary;
     grid-column: col-start 7 / full-end;
+    padding: 3rem;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;  // all 2 of these make the content align to the parent so it's completely centered! 
+    justify-items: center; // centers the title text , doesn't affect images and text below because they define the width of the grid. 
+    grid-row-gap: 2rem; // gives us space between the H3 heading and the list of realtors
+
+    &__list {
+        display: grid;
+        grid-template-columns: min-content max-content;// 1 column for the images, 1 column for the text side by side 
+        grid-column-gap: 2rem;
+        grid-row-gap: 5vh; // 5% of the viewport height -- so the spacing changes depending on screen size
+
+        align-items: center; // centering the items inside the cells vertically so they are even with the photos on the left column
+    }
+
+    &__img {
+        width: 7rem;
+        border-radius: 50%;
+        display: block; // best to always display images as a block
+    }
+
+    &__sold {
+        text-transform: uppercase;
+        color: $color-grey-light-2;
+        margin-top: -3px;
+    }
 }

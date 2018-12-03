@@ -24,9 +24,9 @@
         fill: $color-primary;
         height: 4.5rem;
         width: 4.5rem;
-         grid-row: 1 / span 2; // (-1 would be to the end of the EXPLICIT grid)
+        grid-row: 1 / span 2; // (-1 would be to the end of the EXPLICIT grid)
 
-         transform: translateY(-1rem); // moves the icon up a little bit so it's centered
+        transform: translateY(-1rem); // moves the icon up a little bit so it's centered
     }
 
     &__text {

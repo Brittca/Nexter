@@ -1,4 +1,59 @@
+
 .header {
     background-color: $color-grey-dark-1;
     grid-column: full-start / col-end 6; // starts right after the sidebar, and ends after the 6th column
+    background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), 
+                      url(../img/hero.jpeg); // how to make img overlay
+    background-size: cover;
+    background-position: center;
+    padding: 8rem; // spaces the grid inside the parent grid, to move it away from the sides of the element
+    padding-top: 4rem; // makes the logo go closer to the top of the page
+
+    display: grid;
+    grid-template-rows: 1fr min-content 6rem 1fr; // this grid takes on the 80vh of the parent grid, 1fr moves everything to the bottom except the logo at the top
+    grid-template-columns: max-content; // 1 column and want it to be the size it needs to be to fit the content 
+    grid-row-gap: 1.5rem; // we cannot style the row gaps, but we can increase the row heights individually 
+    justify-content: center; // centers this grid track inside of the grid container
+
+    &__logo {
+        height: 3rem;
+        justify-self: center;
+    }
+
+    &__btn {
+        align-self: start; // styles the button to stay in the top of the row
+        justify-self: start; // styles the button to stay to the left of the column
+    }
+
+    &__seenon-text {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-column-gap: 1.5rem;
+        align-items: center;
+        
+
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+
+        &::before, // left line 
+        &::after { // right line 
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor; // takes the current text color definined above 
+        }
+    }
+
+    &__seenon-logos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 3rem;
+        justify-items: center; // centers each item inside their grid cell
+
+
+        img {
+            height: 2.5rem; // set image height first 
+            filter: brightness(70%); // makes the text for the logo images drop in brightness so it's darker
+        }
+    }
 }
