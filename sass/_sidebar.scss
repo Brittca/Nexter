@@ -5,6 +5,13 @@
 
     display: flex; // creates a 1 dimensional flex container 
     justify-content: center; // centers all child elements below in the center along the main axis (horizontal), so the nav design
+
+    @media only screen and (max-width: $bp-large) {
+        grid-column: 1 / -1; // changes to first to last column
+        grid-row: 1 / 2; // changes to row 1 to row 2
+        justify-content: flex-end; // moves the nav to the end of the row
+        align-items: center; // vertically center the icon inside the side bar
+    }
 }
 
 .nav-btn {
@@ -25,11 +32,18 @@
         display: block;
     }
 
-    &::before {
-        transform: translateY(-1.5rem);
-    }
+    &::before {transform: translateY(-1.5rem);}
 
     &::after {
         transform: translateY(1.3rem);
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        margin-top: 0; // no more top margin needed
+        margin-right: 3rem; // right margin because the nav is now on the right
+
+        &::before {transform: translateY(-1.2rem);} // makes the gaps on the nav lines closer together 
+    
+        &::after {transform: translateY(1.0rem);}
     }
 }

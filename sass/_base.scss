@@ -14,6 +14,16 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// RESPONSIVE BREAKPOINTS 
+$bp-largest: 75em; // 1200 px - 1200px/ 16px
+$bp-large: 62.5em; // 1000 px - 1000px/16px 
+$bp-medium: 50em; // 800px - 800px/16px
+$bp-small: 37.5em; // 600px - 600px/16px
+$bp-xsmall: 25em; // 400px - 400px/16px
+
+
+// UNIVERSAL RESETS 
+
 *,
 *::before,
 *::after {
@@ -22,9 +32,14 @@ $font-display: 'Josefin Sans', sans-serif;
     box-sizing: inhert;
 }
 
+
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 10px/16px = 62.5% --> 1rem = 10px
+
+        @media only screen and (max-width: $bp-largest) {
+            font-size: 50%;
+        }
 }
 
 body {
@@ -45,5 +60,15 @@ body {
        //       minmax(6rem, 1fr) = minimum of 60px for the full-start and full-end columns,
        //       never smaller than 6rem - main 8 columns then begin to shrink - insures always a margin between colummns and end of the page!
         // it creates a 'full bleed' section to break out of the predefined 8 column grid layout
-    
+
+        @media only screen and (max-width: $bp-large) {
+            grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content); // defines the setup for every grid row on site
+            grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] 
+                           repeat(8, [col-start] minmax(min-content, 14rem)[col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-rows: 6rem calc(100vh - 6rem); // (removed because auto algorithm will do this itself) min-content min-content min-content repeat(3, min-content); // change VH to calculate the viewport height minus 6rem (top row)
+            
+        }
 }

@@ -11,6 +11,14 @@
 
     align-items: start; // aligns text for the child elements below to start at the TOP of each row/column so we can have different amounts of text
 
+    @media only screen and (max-width: $bp-small) {
+        margin: 10rem 0;
+    }
+    
+    @media only screen and (max-width: $bp-xsmall) {
+        margin: 8rem 0;
+    }
+
 }
 
 .feature {  // independent component that is reuseable on another page, independent of the features class 
@@ -19,6 +27,17 @@
     grid-template-columns: min-content 1fr;
     grid-row-gap: 1.5rem;
     grid-column-gap: 2.5rem;
+
+    // PROGRESSIVE ENHANCEMENT EXAMPLE - OLD FLOAT LAYOUT FOR OLDER BROWSERS 
+
+    /* 
+    @supports (display: grid) {
+    Float: left;
+    width: 33.333%
+    margin-bottom: 6rem;
+    }
+    
+    */
 
     &__icon {
         fill: $color-primary;

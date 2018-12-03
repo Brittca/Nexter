@@ -9,6 +9,21 @@
     justify-items: center; // centers the title text , doesn't affect images and text below because they define the width of the grid. 
     grid-row-gap: 2rem; // gives us space between the H3 heading and the list of realtors
 
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1; // changes realtors section to span the entire viewport in one column
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 6rem;
+    }
+
+
+    @media only screen and (max-width: $bp-xsmall) {
+        padding: 5rem;
+    }
+
+
+
     &__list {
         display: grid;
         grid-template-columns: min-content max-content;// 1 column for the images, 1 column for the text side by side 
@@ -16,6 +31,14 @@
         grid-row-gap: 5vh; // 5% of the viewport height -- so the spacing changes depending on screen size
 
         align-items: center; // centering the items inside the cells vertically so they are even with the photos on the left column
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content); // changes the realtors section to be THREE columns side by side
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: min-content max-content; // stacks the realtors again like the original design 
+        }
     }
 
     &__img {

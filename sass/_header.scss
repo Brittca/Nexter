@@ -10,10 +10,18 @@
     padding-top: 4rem; // makes the logo go closer to the top of the page
 
     display: grid;
-    grid-template-rows: 1fr min-content 6rem 1fr; // this grid takes on the 80vh of the parent grid, 1fr moves everything to the bottom except the logo at the top
-    grid-template-columns: max-content; // 1 column and want it to be the size it needs to be to fit the content 
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr; // min-content makes sure we have enough space to fit out content in the row.. this grid takes on the 80vh of the parent grid, 1fr moves everything to the bottom except the logo at the top
+    grid-template-columns: minmax(min-content, max-content); // the column should never be more narrow than the content
     grid-row-gap: 1.5rem; // we cannot style the row gaps, but we can increase the row heights individually 
     justify-content: center; // centers this grid track inside of the grid container
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1; // makes the left side of the header now fill the entire column at 800px width (drops realtors to 3rd row)
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
 
     &__logo {
         height: 3rem;
@@ -49,10 +57,12 @@
         grid-template-columns: repeat(4, 1fr);
         grid-column-gap: 3rem;
         justify-items: center; // centers each item inside their grid cell
+        align-items: center;
 
 
         img {
-            height: 2.5rem; // set image height first 
+            max-height: 2.5rem; // set image height first -- height wil lbe 2.5 rem but can also be less
+            max-width: 100%;
             filter: brightness(70%); // makes the text for the logo images drop in brightness so it's darker
         }
     }

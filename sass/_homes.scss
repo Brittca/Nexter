@@ -5,6 +5,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // auto # of columns, min of 250px max of 1 fr.
     grid-gap: 7rem; // 70px
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 8rem 0;
+    }
 }
 
 .home {
@@ -74,7 +78,6 @@
             width: 2rem;
             margin-right: 1rem; // separates the icon from the text
         }
-
     }
 
     &__btn {
